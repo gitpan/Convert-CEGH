@@ -4,12 +4,13 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
 	NAME		=> 'Convert::CEGH',
 	DISTNAME	=> 'Convert-CEGH',
-	VERSION		=> "0.01",
+	VERSION		=> "0.02",
 	AUTHOR		=> "Daniel Yacob <dyacob\@cpan.org>",
 	ABSTRACT	=> "Gematria and Transliteration for Coptic, Ethiopic, Greek and Hebrew.",
+	PREREQ_PM 	=> { 'Regexp::Ethiopic' => '0.10' },
 	dist			=>	{
 		COMPRESS        =>	"gzip -9f",
 		SUFFIX          =>	"gz",
 		POSTOP          =>	'mv $(DISTNAME)-$(VERSION).tar.gz ../'
-	}
+	},
 );

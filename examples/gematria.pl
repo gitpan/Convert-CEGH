@@ -13,6 +13,13 @@ print "עשוהי => ", enumerate ( "עשוהי" ), "\n";
 print "ኢየሱስ => ", enumerate ( "ኢየሱስ" ), "\n";
 print "ክርስቶስ => ", enumerate ( "ክርስቶስ" ), "\n";
 
+$Convert::CEGH::Gematria::use_halehame = 1;
+print "አዳም => ", enumerate ( "አዳም" ), "\n";
+print "ኢየሱስ => ", enumerate ( "ኢየሱስ" ), "\n";
+print "ክርስቶስ => ", enumerate ( "ክርስቶስ" ), "\n";
+print "አብርሃም => ", enumerate ( "አብርሃም " ), "\n";
+$Convert::CEGH::Gematria::use_halehame = 0;
+
 print "ΙΕΟΥΣ => ", enumerate ( "ΙΕΟΥΣ" ), "\n";
 print "ΧΡΙΣΤΟΣ => ", enumerate ( "ΧΡΙΣΤΟΣ" ), "\n";
 
@@ -30,7 +37,8 @@ gematria.pl - Demonstration of Gematria Calculations.
 =head1 DESCRIPTION
 
 This is a simple demonstration script that presents examples
-of gematria conversions for 8 sample words.
+of gematria conversions for 10 sample words.  The script also
+illustrates the "Halehame" Gematria usage.
 
 
 =head1 AUTHOR

@@ -176,9 +176,9 @@ None presently known.
 
 =over 4
 
-=item http://www.omniglot.com/writing/greek.htm
+=item L<http://www.omniglot.com/writing/greek.htm>
 
-=item http://www.ancientscripts.com/greek.html
+=item L<http://www.ancientscripts.com/greek.html>
 
 =back
 
@@ -186,9 +186,9 @@ None presently known.
 
 =over 4
 
-=item http://www.omniglot.com/writing/coptic.htm
+=item L<http://www.omniglot.com/writing/coptic.htm>
 
-=item http://www.ancientscripts.com/coptic.html
+=item L<http://www.ancientscripts.com/coptic.html>
 
 =back
 
@@ -196,7 +196,7 @@ None presently known.
 
 =over 4
 
-=item http://www.ancient-hebrew.org/4_chart.html
+=item L<http://www.ancient-hebrew.org/4_chart.html>
 
 =back
 

@@ -5,7 +5,12 @@ use Regexp::Ethiopic qw(:forms setForm);
 BEGIN
 {
 use base qw( Exporter );
-use vars qw( $አበገደሀ $תיבפלא $ΑΛΦΑΒΕΤ %Gematria @EXPORT_OK $VERSION );
+use vars qw( $አበገደሀ $תיבפלא $ΑΛΦΑΒΕΤ %Gematria @EXPORT_OK $VERSION $use_halehame );
+
+
+	@EXPORT_OK = qw( enumerate );
+
+	$VERSION = "0.02";
 
 	#
 	# Gematria Data:
@@ -13,6 +18,7 @@ use vars qw( $አበገደሀ $תיבפלא $ΑΛΦΑΒΕΤ %Gematria @EXPORT_OK
 	$አበገደ    = "አበገደሀወዘሐጠየከለመነሠዐፈጸቀረሰተኀፀጰፐኈ"; # ቈ 1,000 እ 10,000
 	$תיבפלא  = "אבגדהוזחטיכלמנסעפצקרשתךםןףץ";
 	$ΑΛΦΑΒΕΤ = "ΑΒΓΔΕϚΖΗΘΙΚΛΜΝΞΟΠϘΡΣΤΥΦΧΨΩϠ"; #  Ϛ/Ϝ
+	$ሀለሐመ    = "ሀለሐመሠረሰቀበተኀነአከወዐዘየደገጠጰጸፀፈፐ";
 	# $Coptic  ="ΑΒΓΔΕϚΖΗϴΙΚΛΜΝΞΟΠ ΡCΤΥΦΧΨΩϢϤϦϨϪϬϮ";
 
 	%Gematria =(
@@ -21,13 +27,11 @@ use vars qw( $አበገደሀ $תיבפלא $ΑΛΦΑΒΕΤ %Gematria @EXPORT_OK
 		ell => $ΑΛΦΑΒΕΤ,
 		et  => $አበገደ,
 		he  => $תיבפלא,
-		el  => $ΑΛΦΑΒΕΤ
+		el  => $ΑΛΦΑΒΕΤ,
+		et_halehame => $ሀለሐመ
 	);
 
-
-	@EXPORT_OK = qw( enumerate );
-
-	$VERSION = "0.01";
+	$use_halehame = 0;
 }
 
 
@@ -76,7 +80,13 @@ my ($string) = @_;
 	}
 	if ( $string =~ /\p{Ethiopic}/ ) {
 		$string =~ s/(.)/($1 eq "ኈ" ) ? "ኈ" : setForm($1,$ግዕዝ)/eg;
-		return ( $string, "eth" );
+		if ( $use_halehame ) {
+			$string =~ s/(ኈ)/setForm($1,$ግዕዝ)/eg;
+			return ( $string, "et_halehame" );
+		}
+		else {
+			return ( $string, "eth" );
+		}
 	}
 
 }
@@ -154,9 +164,9 @@ None presently known.
 
 =over 4
 
-=item http://geez.org/Numerals/Numerology.html
+=item L<http://geez.org/Numerals/Numerology.html>
 
-=item http://www.geocities.com/Athens/Parthenon/7069/key-1.html
+=item L<http://www.geocities.com/Athens/Parthenon/7069/key-1.html>
 
 =back
 
